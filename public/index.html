@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text To Speech Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+
+        <!-- Heading -->
+        <h1>Text <span>To</span> Speech Converter</h1>
+
+        <!-- Editable display div -->
+        <div
+            id="displayDiv"
+            class="display-div"
+            contenteditable="true"
+            spellcheck="false"
+            aria-label="Text input area"
+        ></div>
+
+        <!-- Hidden input to hold raw text value -->
+        <input type="hidden" id="hiddenInput" value="">
+
+        <!-- Reading Time + Progress Bar -->
+        <div class="reading-row">
+            <span class="reading-time" id="readingTime">Estimated reading time: 0 min</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+        <!-- Upload PDF or DOCX -->
+        <div class="file-upload" id="fileUpload">
+            <span id="uploadText">&#128196; Upload PDF or DOCX</span>
+            <input type="file" id="pdfInput" accept=".pdf,.docx">
+        </div>
+
+        <!-- Voice + Speed row -->
+        <div class="row">
+            <select id="voiceSelect" aria-label="Select voice language"></select>
+            <select id="speedSelect" aria-label="Select playback speed">
+                <option value="1"    selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5" >1.5x</option>
+                <option value="1.75">1.75x</option>
+                <option value="2"   >2x</option>
+            </select>
+        </div>
+
+        <!-- Playback controls -->
+        <div class="controls-row">
+            <button id="speakBtn" aria-label="Listen to speech">
+                &#9654;&nbsp; Listen
+            </button>
+            <button id="pauseBtn" aria-label="Pause or resume speech" disabled>
+                &#9208;&nbsp; Pause
+            </button>
+            <button id="backwardBtn" aria-label="Skip backward 10s" disabled>
+                &#9194;&nbsp; -10s
+            </button>
+            <button id="forwardBtn" aria-label="Skip forward 10s" disabled>
+                &#9193;&nbsp; +10s
+            </button>
+        </div>
+
+        <!-- Download section -->
+        <div class="download-section">
+            <div class="download-divider">
+                <span>Download as audio</span>
+            </div>
+            <div class="download-row">
+                <select id="downloadLangSelect" aria-label="Select download language">
+                    <option value="en">English</option>
+                    <option value="ar">Arabic</option>
+                    <option value="zh-CN">Chinese</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="hi">Hindi</option>
+                    <option value="it">Italian</option>
+                    <option value="ja">Japanese</option>
+                    <option value="ko">Korean</option>
+                    <option value="pt">Portuguese</option>
+                    <option value="ru">Russian</option>
+                    <option value="sv">Swedish</option>
+                    <option value="es">Spanish</option>
+                    <option value="ml">Malayalam</option>
+                    <option value="ka">Kannada</option>
+                    <option value="te">Telugu</option>
+                    <option value="ta">Tamil</option>
+                    <option value="mr">Marathi</option>
+                    <option value="bn">Bengali</option>
+                </select>
+                <button id="downloadBtn" aria-label="Download audio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download MP3
+                </button>
+            </div>
+            <!-- Status message -->
+            <p id="downloadStatus" class="download-status"></p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
